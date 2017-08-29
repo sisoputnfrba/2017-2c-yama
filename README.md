@@ -1,2 +1,7 @@
-# 2017-2c-yama
-Enunciado del TP del 2c2016 "char *mander"
+# Y.A.M.A.
+## Yet​ ​Another​ ​MR Administrator
+
+![Y.A.M.A.](/cover.png)
+
+Trabajo practico de Sistemas Operativos de la U.T.N. F.R.B.A.
+Segundo cuatrimestre 2017.
