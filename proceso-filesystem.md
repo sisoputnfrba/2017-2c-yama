@@ -2,7 +2,7 @@
 
 Este proceso será el encargado de organizar los bloques de datos distribuidos en los procesos DataNode de cada Nodo, asociarlos a los correspondientes nombres de archivos para así exponer el sistema de archivos a los usuarios.
 
-Al iniciar, leerá su archivo de configuración y quedará a la espera de las conexiones de los procesos DataNode. Una vez que se hayan conectado los DataNode requeridos para un estado estable[^2] permitirá que se conecte el YAMA, a quien responderá solicitudes sobre los archivos. Mientras que el FileSystem no adquiera un estado estable, el mismo no deberá permitir la conexión de YAMA.
+Al iniciar, leerá su archivo de configuración, si lo tuviese, y quedará a la espera de las conexiones de los procesos DataNode. Una vez que se hayan conectado los DataNode requeridos, se deberá formatear el FileSystem, pasando el mismo a un **estado estable**[^2], en el cual permitirá que se conecten Workers o YAMA, a quien responderá solicitudes sobre los archivos. Mientras que el FileSystem no adquiera un estado estable, el mismo no deberá permitir la conexión de YAMA u otro proceso que no sean DataNode. Además, una vez formateado el FileSystem, no se permitirán nuevos Nodos en el sistema.
 
 ## Estructura del FileSystem
 
@@ -69,15 +69,17 @@ Si existe un estado anterior (es decir, existiesen todos los archivos mencionado
 
 Durante el establecimiento de la conexión, el FileSystem comparará el id del Nodo al que pertenece el DataNode, y si el mismo corresponde a un Nodo de un estado anterior, el mismo será agregado como válido, asumiendo que los datos de los bloques son correctos.
 
-Mientras que el FileSystem no posea al menos 1 copia de cada uno de los archivos almacenados en los DataNodes conectados, se denomina que **el proceso FileSystem está en un estado no-estable**. Una vez adquiridas al menos 1 copia de cada archivo, cada referencia a un Nodo que no se encuentre conectado, será eliminada de las estructuras del FileSystem por ser considerada inválida. Una vez realizada la limpieza de los Nodos no conectados, se considerará que e**l proceso FileSystem ha pasado a un estado estable**.
+Mientras que el FileSystem no posea al menos 1 copia de cada uno de los archivos almacenados en los DataNodes conectados, se denomina que **el proceso FileSystem está en un estado no-estable**. Una vez adquiridas al menos 1 copia de cada archivo, se considerará que **el proceso FileSystem ha pasado a un estado estable** y permitirá nuevamente conexiones de los demás procesos.
 
 Como aclaración final, si el proceso FileSystem es ejecutado con el flag `--clean` se procederá a ignorar e eliminar el estado anterior. Sin embargo, el proceso FileSystem se inicializará en un **estado no-estable** hasta que se efectúe la conexión de un Nodo, luego de la cual, pasará a un **estado estable**.
+
+Sin embargo, aunque el proceso FileSystem pase a un _estado estable_, permitirá que los nodos que todavía no se conectaron, vuelvan a hacerlo.
 
 Ejemplo de ejecución de un proceso FileSystem ignorando el estado anterior: `./yamafs --clean`
 
 ## Interfaz del proceso Filesystem
 
-Contará con una interfaz detallada contra los DataNodes, la cual no puede ser modificada ni ampliada pero la definición del protocolo será definida por el grupo.
+Contará con una interfaz detallada contra los Nodos, la cual no puede ser modificada ni ampliada pero la definición del protocolo será definida por el grupo.
 
 ### Almacenar archivo
 

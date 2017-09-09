@@ -27,7 +27,7 @@ YAMA mantendrá una estructura interna denominada **tabla de estados** con las s
 
 Los nombres temporales de los archivos, así como los identificadores de cada Job, deberán ser generados automáticamente por el proceso YAMA evitando que los mismos se repitan.
 
-Al recibir de parte del Master notificaciones de que las operaciones concluyeron actualizará los correspondientes estados.
+Al recibir de parte del Master notificaciones de que las operaciones concluyeron actualizará los correspondientes estados. Así mismo, YAMA obtendrá el proceso FileSystem toda la información referente a los Nodos sobre los cuales se encuentran los bloques a utilizar, y la utilizará para poder generar la tabla.
 
 Es necesario aclarar, que las entradas de Jobs no se deberán eliminar una vez finalizada su ejecución (sea correcta o no), a fines de evaluar los resultados del Sistema.
 
