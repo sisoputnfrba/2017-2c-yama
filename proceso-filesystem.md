@@ -69,11 +69,9 @@ Si existe un estado anterior (es decir, existiesen todos los archivos mencionado
 
 Durante el establecimiento de la conexión, el FileSystem comparará el id del Nodo al que pertenece el DataNode, y si el mismo corresponde a un Nodo de un estado anterior, el mismo será agregado como válido, asumiendo que los datos de los bloques son correctos.
 
-Mientras que el FileSystem no posea al menos 1 copia de cada uno de los archivos almacenados en los DataNodes conectados, se denomina que **el proceso FileSystem está en un estado no-estable**. Una vez adquiridas al menos 1 copia de cada archivo, se considerará que **el proceso FileSystem ha pasado a un estado estable** y permitirá nuevamente conexiones de los demás procesos.
+Mientras que el FileSystem no posea al menos 1 copia de cada uno de los archivos almacenados en los DataNodes conectados, se denomina que **el proceso FileSystem está en un estado no-estable**. Una vez adquiridas al menos 1 copia de cada archivo, se considerará que **el proceso FileSystem ha pasado a un estado estable** y permitirá nuevamente conexiones de los demás procesos. Además, aunque el proceso FileSystem pase a un _estado estable_, permitirá que los nodos que todavía no se conectaron, vuelvan a hacerlo.
 
-Como aclaración final, si el proceso FileSystem es ejecutado con el flag `--clean` se procederá a ignorar e eliminar el estado anterior. Sin embargo, el proceso FileSystem se inicializará en un **estado no-estable** hasta que se efectúe la conexión de un Nodo, luego de la cual, pasará a un **estado estable**.
-
-Sin embargo, aunque el proceso FileSystem pase a un _estado estable_, permitirá que los nodos que todavía no se conectaron, vuelvan a hacerlo.
+Como aclaración final, si el proceso FileSystem es ejecutado con el flag `--clean` se procederá a ignorar e eliminar el estado anterior.
 
 Ejemplo de ejecución de un proceso FileSystem ignorando el estado anterior: `./yamafs --clean`
 
