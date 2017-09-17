@@ -77,8 +77,9 @@ Para esta etapa, los Nodos quedarán a la espera de una conexión de Master (si 
 
 ### Archivo de Log
 
-El proceso DataNode deberá contar con un archivo de configuración en el cual se logearán todas las operaciones realizadas. Las mismas deberán ser mostradas por pantalla.
-Archivo de Datos (data.bin)
+El proceso Worker deberá contar con un archivo de configuración en el cual se logearán todas las operaciones realizadas. Las mismas deberán ser mostradas por pantalla.
+
+## Archivo de Datos (data.bin)
 
 El Archivo de Datos del Nodo será un archivo almacenado localmente de tamaño pre-solicitado. El contenido del mismo será exclusivamente los bloques de datos y no podrá contener estructuras administrativas.
 
