@@ -93,6 +93,7 @@ FS_IP=
 FS_PUERTO=
 RETARDO_PLANIFICACION=
 ALGORITMO_BALANCEO=
+DISP_BASE=
 ```
 
 Queda a decisión del grupo el agregado de más parámetros al mismo. Es menester aclarar que el retardo de la planificación es un elemento meramente para fines de pruebas, dado que en situaciones normales se lo seteará con el valor de 0ms. Para su implementación, se recomienda que el grupo investigue sobre la función [`usleep()`](http://man7.org/linux/man-pages/man3/usleep.3.html).
@@ -101,7 +102,7 @@ Además, YAMA deberá registrar toda su actividad mediante un archivo de log, mo
 
 ## Recarga de la Configuración
 
-YAMA será capaz de volver a cargar la configuración provista ante un posible cambio del retardo de planificación y el algoritmo de balanceo. Eso se realizará enviando a YAMA la señal **`SIGUSR1`**.
+YAMA será capaz de volver a cargar la configuración provista ante un posible cambio del retardo de planificación, Disponibilidad Base y el algoritmo de balanceo. Eso se realizará enviando a YAMA la señal **`SIGUSR1`**.
 
 Es menester aclarar que el cambio del algoritmo de balaceo será realizado cuando sea necesaria realizar una nueva planificación o una re-planificación por parte de YAMA. Lo mismo aplica para el retardo.
 
