@@ -43,9 +43,9 @@ Al contar con dos copias por cada bloque de datos **optará en función de la ca
 
 ## Balanceo de Carga
 
-El proceso YAMA deberá efectuar la distribución de las tareas en los Nodos. Dicha distribución responderá al algoritmo de balanceo de carga configurado, siendo sus posibles valores Round **Robin**(RR) o **Weighted Round Robin**(WRR).
+El proceso YAMA deberá efectuar la distribución de las tareas en los Nodos. Dicha distribución responderá al algoritmo de balanceo de carga configurado, siendo sus posibles valores **Clock** o **Weighted Clock**(W-Clock).
 
-A diferencia del algoritmo RR, el algoritmo WRR va a efectuar una valoración sobre cada Nodo en función a la cantidad de tareas que se encuentre realizando y haya realizado; eligiendo el que menos tareas se encuentre realizando y, en caso de empate, el que menos cantidad de tareas haya realizado. Es responsabilidad del grupo conocer los posibles límites que pueda conllevar la particular implementación del mismo realizada por el grupo.
+A diferencia del algoritmo Clock simple, el algoritmo W-Clock va a efectuar una valoración sobre cada Nodo en función a la cantidad de tareas que se encuentre realizando y haya realizado; eligiendo el que menos tareas se encuentre realizando y, en caso de empate, el que menos cantidad de tareas haya realizado. Es responsabilidad del grupo conocer los posibles límites que pueda conllevar la particular implementación del mismo realizada por el grupo. Una ampliación sobre el tema es tratada en el [Anexo II: Algoritmos de Planificación](anexo-ii--algoritmos-de-planificacion.md).
 
 ### Ejemplo Archivo `misdatos.csv`
 | Bloque   | Copia 0            | Copia 1            | Bytes ocupados |
