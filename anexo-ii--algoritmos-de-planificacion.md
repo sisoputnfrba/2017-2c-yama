@@ -19,7 +19,7 @@ En esta pre-planificación, los recursos sobre los cuales trabajar en por YAMA s
 
 El algoritmo se compone de tres partes:
 - Una **función de Availability** o Disponibilidad
-- Un puntero a la instrucción base, denominado **Clock**, de funcionamiento similar al del algoritmo visto en la teoría que lleva el mismo nombre.
+- Un puntero a la instrucción base, denominado **Clock**, de funcionamiento similar al del algoritmo de Memoria visto en la teoría que lleva el mismo nombre.
 - Un conjunto de **Reglas** a seguir.
 
 ### Obtención de la función de Availability
