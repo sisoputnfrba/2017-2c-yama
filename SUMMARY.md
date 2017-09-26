@@ -8,4 +8,5 @@
 * [Componente Nodo](componente-nodo.md)
 * [Descripción de las entregas](descripcion-de-las-entregas.md)
 * [Anexo I - Apareo de Archivos](anexo-i--apareo-de-archivos.md)
+* [Anexo II - Algoritmos de Planificación](anexo-ii--algoritmos-de-planificacion.md)
 

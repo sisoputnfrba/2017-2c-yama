@@ -26,7 +26,7 @@
   - Implementación de la base del Protocolo de Comunicación
   - Comprender y aplicar `mmap()`
   - Desarrollar las  Estructuras del FileSystem (Tablas de Directorios, Archivos, Nodos, Bitmap)
-  - YAMA debe poder planificar tareas mediante Round Robin
+  - YAMA debe poder planificar tareas mediante el algoritmo Clock
   - Master y YAMA pueden efectuar todo un recorrido (sin comunicación contra el Worker ni FS) respetando el RR
   - El FileSystem debe permitir la copa de un archivo al yamafs y almacenarlo partiéndolo en bloques.
 - Lectura recomendada:
@@ -40,7 +40,7 @@
 - **Tiempo Estimado**: 2 semanas
 - **Objetivos**:
   - Los procesos Master y YAMA manejan errores durante la ejecución de un Job.
-  - El proceso YAMA puede replanificar una etapa de planificación y admite planificación con WRR.
+  - El proceso YAMA puede replanificar una etapa de planificación y admite planificación con W-Clock.
   - El proceso YAMA debe poder conectarse al FileSystem y levantar la metadata sobre un archivo sobre el cual ejecutar un Job.
   - La Consola del FileSystem es capaz de reproducir las operaciones de copia de archivos contra el FileSystem local y la generación del md5 de un archivo almacenado.
   - Los procesos Worker deben poder recibir archivos por socket y darles permisos de ejecución.

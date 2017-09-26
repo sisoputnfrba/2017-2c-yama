@@ -43,9 +43,9 @@ Al contar con dos copias por cada bloque de datos **optará en función de la ca
 
 ## Balanceo de Carga
 
-El proceso YAMA deberá efectuar la distribución de las tareas en los Nodos. Dicha distribución responderá al algoritmo de balanceo de carga configurado, siendo sus posibles valores Round **Robin**(RR) o **Weighted Round Robin**(WRR).
+El proceso YAMA deberá efectuar la distribución de las tareas en los Nodos. Dicha distribución responderá al algoritmo de balanceo de carga configurado, siendo sus posibles valores **Clock** o **Weighted Clock**(W-Clock).
 
-A diferencia del algoritmo RR, el algoritmo WRR va a efectuar una valoración sobre cada Nodo en función a la cantidad de tareas que se encuentre realizando y haya realizado; eligiendo el que menos tareas se encuentre realizando y, en caso de empate, el que menos cantidad de tareas haya realizado. Es responsabilidad del grupo conocer los posibles límites que pueda conllevar la particular implementación del mismo realizada por el grupo.
+A diferencia del algoritmo Clock simple, el algoritmo W-Clock va a efectuar una valoración sobre cada Nodo en función a la cantidad de tareas que se encuentre realizando y haya realizado; eligiendo el que menos tareas se encuentre realizando y, en caso de empate, el que menos cantidad de tareas haya realizado. Es responsabilidad del grupo conocer los posibles límites que pueda conllevar la particular implementación del mismo realizada por el grupo. Una ampliación sobre el tema es tratada en el [Anexo II: Algoritmos de Planificación](anexo-ii--algoritmos-de-planificacion.md).
 
 ### Ejemplo Archivo `misdatos.csv`
 | Bloque   | Copia 0            | Copia 1            | Bytes ocupados |
@@ -93,6 +93,7 @@ FS_IP=
 FS_PUERTO=
 RETARDO_PLANIFICACION=
 ALGORITMO_BALANCEO=
+DISP_BASE=
 ```
 
 Queda a decisión del grupo el agregado de más parámetros al mismo. Es menester aclarar que el retardo de la planificación es un elemento meramente para fines de pruebas, dado que en situaciones normales se lo seteará con el valor de 0ms. Para su implementación, se recomienda que el grupo investigue sobre la función [`usleep()`](http://man7.org/linux/man-pages/man3/usleep.3.html).
@@ -101,7 +102,7 @@ Además, YAMA deberá registrar toda su actividad mediante un archivo de log, mo
 
 ## Recarga de la Configuración
 
-YAMA será capaz de volver a cargar la configuración provista ante un posible cambio del retardo de planificación y el algoritmo de balanceo. Eso se realizará enviando a YAMA la señal **`SIGUSR1`**.
+YAMA será capaz de volver a cargar la configuración provista ante un posible cambio del retardo de planificación, Disponibilidad Base y el algoritmo de balanceo. Eso se realizará enviando a YAMA la señal **`SIGUSR1`**.
 
 Es menester aclarar que el cambio del algoritmo de balaceo será realizado cuando sea necesaria realizar una nueva planificación o una re-planificación por parte de YAMA. Lo mismo aplica para el retardo.
 
