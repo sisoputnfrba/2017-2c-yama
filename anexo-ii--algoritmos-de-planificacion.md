@@ -46,7 +46,7 @@ La función de Availability de un Worker, definida como A(w) responderá a lo si
    - Se calcularán los valores de disponibilidades para cada Worker
    - Se posicionará el Clock en el Worker de mayor disponibilidad, *desempatando por el primer worker que tenga menor cantidad de tareas realizadas históricamente*.
 2. Se deberá evaluar si el Bloque a asignar se encuentra en el Worker apuntado por el Clock y el mismo tenga disponibilidad mayor a 0.
-   - Si se encuentra, se deberá reducir en 1 el valor de disponibilidad y avanzar el Clock al siguiente Worker. Si dicho clock fuera a ser asignado a un Worker cuyo nivel de disponibilidad fuera 0, *se deberá restaurar la disponibilidad al valor del quantum y luego, avanzar el clock al siguiente Worker, repitiendo el paso 2*.
+   - Si se encuentra, se deberá reducir en 1 el valor de disponibilidad y avanzar el Clock al siguiente Worker. Si dicho clock fuera a ser asignado a un Worker cuyo nivel de disponibilidad fuera 0, *se deberá restaurar la disponibilidad al valor de la disponibilidad base y luego, avanzar el clock al siguiente Worker, repitiendo el paso 2*.
    - En el caso de que no se encuentre, se deberá utilizar el siguiente Worker que posea una disponibilidad mayor a 0. *Para este caso, no se deberá modificar el Worker apuntado por el Clock*.
    - Si se volviera a caer en el Worker apuntado por el clock por no existir disponibilidad en los Workers (es decir, da una vuelta completa a los Workers), *se deberá sumar al valor de disponibilidad de todos los workers el valor de la __Disponibilidad Base__ configurado al inicio de la pre-planificación*.
 3. Si existe otro Bloque sobre el cual realizar una tarea, efectuar el paso (2) nuevamente con el nuevo bloque. 
