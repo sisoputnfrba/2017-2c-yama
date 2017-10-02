@@ -107,7 +107,7 @@ Como aclaración, algunos comandos pueden llegar a ser reutilizables para difere
 5. `cat [path_archivo]` - Muestra el contenido del archivo como texto plano.
 6. `mkdir [path_dir]` - Crea un directorio. Si el directorio ya existe, el comando deberá informarlo.
 7. `cpfrom [path_archivo_origen] [directorio_yamafs]` - Copiar un archivo local al yamafs, siguiendo los lineamientos en la operaciòn Almacenar Archivo, de la Interfaz del FileSystem.
-8. `cpto [path_archivo_yamafs] [directorio_filesystem]` - Copiar un archivo local al yamafs
+8. `cpto [path_archivo_yamafs] [directorio_filesystem]` - Copiar un archivo local desde el yamafs
 9. `cpblock [path_archivo] [nro_bloque] [id_nodo]` - Crea una copia de un  bloque de un archivo en el nodo dado.
 10. `md5 [path_archivo_yamafs]` - Solicitar el MD5 de un archivo en yamafs
 11. `ls [path_directorio]` - Lista los archivos de un directorio
