@@ -128,8 +128,8 @@ El Filesystem soporta directorios hasta un total de 100 directorios. Todos los a
 | 2     | jose       | 1     |
 | 3     | juan       | 1     |
 | 4     | temporal   | 0     |
-| 5     | datos      | 2     |
-| 6     | fotos      | 2     |
+| 5     | datos      | 3     |
+| 6     | fotos      | 3     |
 | 99    | ...        | ...   |
 
 Como pueden ver este esquema permite el siguiente diagrama:
