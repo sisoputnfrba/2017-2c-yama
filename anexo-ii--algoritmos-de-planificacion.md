@@ -83,7 +83,7 @@ El resultado de la ejecución del W-Clock resultaría en una carga de trabajo fi
 
 Algo a notar, es que en contraste con el algoritmo Clock, si ejecutamos un tercer Job sobre, por ejemplo, los mismos archivos mientras se estuvieran ejecutando los otros 2, obtendrìamos algo como lo siguiente:
 
-![Ejemplo 3](/assets/clock-ejemplo-3.png)
+![Ejemplo 3](/assets/clock-ejemplo-3-fixed.png)
 
 Asimismo, el hecho que genere una carga de trabajo final de:
 Worker 1: 8
